@@ -1,2 +1,2 @@
 # mywork
-repository for myself, practice files
+repository for myself, practice files, lecture codes
