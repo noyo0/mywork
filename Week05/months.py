@@ -10,13 +10,13 @@ months = ("January",
 "October",
 "November",
 "December",
-"January",
-"February"
+#"January",
+#"February"
 )
-qtrs = {"Q1" : months[0:2], "Q2" : months[3:5],"Q3" : months[6:9],"Q4" : months[10:12]}
-seasons = {"Spring" : months[2:5], "Summer" : months[6:8],"Autumn" : months[9:11],"Winter" : months[11:14]}
+#qtrs = {"Q1" : months[0:2], "Q2" : months[3:5],"Q3" : months[6:9],"Q4" : months[10:12]}
+#seasons = {"Spring" : months[2:5], "Summer" : months[5:8],"Autumn" : months[8:11],"Winter" : months[11:13]}
 summer = months[4:7]
-#for month in summer:
-    #print(month)
+for month in summer:
+    print(month)
 #print(qtrs["Q3"])
-print(seasons["Winter"])
+#print(seasons["Spring"])
