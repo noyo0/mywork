@@ -3,42 +3,97 @@
 #Write a program that will read in the data for the data structure above, ie
 #reads in a student’s name, then keeps reading in their modules and grades
 # (until the user enters a blank module name),
-#This program can just read in one student (and their module details).
+#This program prompts user to enter a module name from a pregeneraed list and filters students who are enrolled in selected module
 
-student= {
-    "name" : "Günther",
-    "modules" : [
-        { 
-        "Module" : "History", 
-        "Teacher" : "Prof. John",
-        "Grade" : 99
+students = { #create student database
+    "Mary" : { 
+        "modules" : [
+            {
+                "module" : "Programming",
+                "grade": 99
         },
-        {
-        "Module" : "Pottery",  
-        "Teacher" : "Dr. Akimbo",
-        "Grade" : 55
+            {
+                "module" : "Poetry",
+                "grade" : 3
+        }
+        ]
         },
-        {
-        "Module" : "Horse Maintenance",  
-        "Teacher" : "Dr. Dolittle",
-        "Grade" : 11
+    "John" : { 
+        "modules" : [
+            {
+                "module" : "Pottery",
+                "grade": 20
         },
-        {
-        "Module" : "Fractal Geometry",  
-        "Teacher" : "Prof. Marvin",
-        "Grade" : 33
+            {
+                "module" : "Architecture",
+                "grade" : 5
+        }
+        ]
         },
-        {
-        "Module" : "",#"Life, The Universe and Everything",  
-        "Teacher" : "Prof. Slartibartfast",
-        "Grade" : 42
+    "Bill" : { 
+        "modules" : [
+            {
+                "module" : "Poetry",
+                "grade": 90
         },
-    ]
-}
-print("\n Student: " +student["name"])
-for i in student["modules"]:
-    if i["Module"]== "" or i["Teacher"]== "" or i["Grade"] == "" :
-        print(f"VERY SERIOUS WARNING! Blank entry at: ({i})")
-        break
-    else:
-        print("\t {} \t\t: {}" " -- {}".format(i["Module"], i["Grade"], i["Teacher"]))
+            {
+                "module" : "Athletics",
+                "grade" : 5
+        }
+        ]
+        },
+    "Pam" : { 
+        "modules" : [
+            {
+                "module" : "Poetry",
+                "grade": 20
+        },
+            {
+                "module" : "Architecture",
+                "grade" : 55
+        }
+        ]
+        },
+    "Jack" : { 
+        "modules" : [
+            {
+                "module" : "Cooking",
+                "grade": 92
+        },
+            {
+                "module" : "Programming",
+                "grade" : 50
+        }
+        ]
+        }
+    }
+#create module selection list
+lst = []
+selStud = {"stud":"","mod":"","grd":""} #dictionary container for filter list
+for stud, data in students.items():
+    for i in data["modules"]:
+        addtolist = i["module"]
+        if addtolist not in lst: # check for duplicates
+            lst.append(i["module"]) # append list with unique list items only
+for l in lst:
+    print(l) #print module selection
+# user must enter a valid module name from the list to continue
+userinput = input("Enter a modulename from above list (Case sensitive): ")
+if userinput not in lst:
+    print("That is not on the list. \n \t ...Program closed")
+else: # if item correctly entered Program lists sutdent names, modules and grades
+    for stud, data in students.items():
+        print(stud)
+        for i in data["modules"]:
+           print("\t{}\t\t\t: {}".format(i["module"],i["grade"]))
+# this is the tricky bit; I want to compile a filterd list of students,modules and grades
+# by appending a dictionary. However, the dictionary overwrites instead of appending           
+for stud, data in students.items():
+    for d in data["modules"]:
+       if userinput == d["module"]:
+          selStud['stud'] = str(stud)
+          selStud['mod'] = str(d["module"])
+          selStud['grd'] = str(d["grade"])
+print("\n -> students with the selected module:")
+for s in selStud: #print all dictionary items (it prints the same trice)
+    print(selStud["stud"]+" - "+selStud["mod"]+" - "+selStud["grd"])
