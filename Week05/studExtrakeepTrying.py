@@ -87,6 +87,16 @@ else: # if item correctly entered Program lists sutdent names, modules and grade
         print(stud)
         for i in data["modules"]:
            print("\t{}\t\t\t: {}".format(i["module"],i["grade"]))
+#for s in selStud: #print all dictionary items
+    #print(selStud["stud"]+" - "+selStud["mod"]+" - "+selStud["grd"])
+# lets try with lists
+print("\n -> LIST students with the selected module:")
+for stud, data in students.items():
+# turns out there was no need for a separate list
+    for d in data["modules"]:
+       if userinput == d["module"]:
+            print(stud,"-",d["module"],"-",d["grade"])
+
 # this is the tricky bit; I want to compile a filterd list of students,modules and grades
 # by appending a dictionary. However, the dictionary overwrites instead of appending (I got the append bit from stackoverflow)            
 # for stud, data in students.items():
@@ -96,12 +106,3 @@ else: # if item correctly entered Program lists sutdent names, modules and grade
 #          selStud['mod'] = str(d["module"])
 #          selStud['grd'] = str(d["grade"])
 #print("\n -> DICT students with the selected module:")
-for s in selStud: #print all dictionary items (it prints the same trice)
-    print(selStud["stud"]+" - "+selStud["mod"]+" - "+selStud["grd"])
-# lets try with lists
-print("\n -> LIST students with the selected module:")
-for stud, data in students.items():
-# turns out there was no need for a separate list
-    for d in data["modules"]:
-       if userinput == d["module"]:
-            print(stud,"-",d["module"],"-",d["grade"])
