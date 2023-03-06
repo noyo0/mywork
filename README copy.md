@@ -51,7 +51,7 @@
     Extra: 
     "Modify the program to deal with account numbers of any length (yes that is a vague requirement, comment your assumptions)"
 
-> The modified program promts user for a 10 digit account number, then check lenght of the given number using the len function and deducts 4 to establish how many characters of the accoun t number must be replaced with "X". The result is then stored in variable "coverlenght". The program then converts the original number to string and stores it in variable "accstr" so it can be concatenated and its individual characters can be called between a range. Finally the program concatenates as many "X" caracters as the value stored in coverlenght and calls the last 4 digits from "accstr" by referring to the range from position that equals coverlenght to position that equals coverlenght + 4.
+> The modified program promts user for a 10 digit account number, then checks lenght of the given number using the len function and deducts 4 to establish how many characters of the accoun t number must be replaced with "X". The result is then stored in variable "coverlenght". The program then converts the original number to string and stores it in variable "accstr" so it can be concatenated and its individual characters can be called between a range. Finally the program concatenates as many "X" caracters as the value stored in coverlenght and calls the last 4 digits from "accstr" by referring to the range from position that equals coverlenght to position that equals coverlenght + 4.
 Since the user entry is stored and manipulated as string, there is no limitations to numbers only, the program can deal with any character.
 >>    ###### * References: 
 >>###### 1. len function (https://www.geeksforgeeks.org/python-string-length-len/)  
@@ -61,17 +61,18 @@ Since the user entry is stored and manipulated as string, there is no limitation
 > w04_collatz.py
 
     Task:
-    "Write a program, called collatz.py, that asks the user to input any positive integer and outputs the successive values of the following calculation.
-    At each step calculate the next value by taking the current value and, if it is even, divide it by two, but if it is odd, multiply it by three and add one.
+    "Write a program, called collatz.py, that asks the user to input any positive integer 
+    and outputs the successive values of the following calculation. At each step calculate
+    the next value by taking the current value and, if it is even, divide it by two, 
+    but if it is odd, multiply it by three and add one.
     Have the program end if the current value is one."
 
->> Program asks user to input any positive integer which is stored as integer in variable "number". A list "numbers" is created where each result of the calculation will be stored. The calculation is a formula to calculate each member of a Collatz sequence. The program assumes the endpoint of a Collatz seqence is always 1 (until proven otherwise) so a while loop is initiated which breaks when the result of the calculation reaches 1. Whithin the while loop 
->> 
->> and outputs the successive values of the following calculation; At each step calculate the next value by taking the current value and, if it is even, divide it by two, but if it is odd, multiply it by three and add one. Program ends if the current value is one.
+>> Program asks user to input any positive integer which is stored as integer in variable "number". A list "numbers" is created where each result of the calculation will be stored. The calculation is a formula to get each member of a Collatz sequence. The program assumes the endpoint of a Collatz seqence is always 1 (until someone proves otherwise) so a while loop is initiated which breaks when the value of "number" reaches 1. Whithin the while loop an if statement assigns the appropriate calculations to odd and even numbers based on their divisibility with 2 with 0 remiander using a modulus operator. The result of each itearations updates the variable "number" than stored in list "numbers". Once the value of "number" reaches 1 the loop is ended and the values stored in "numbers" are printed with formatting that prints each item side by side with space as divider.
 >>    ###### * References: 
 >>###### 1. list item data types - ref: (https://www.w3schools.com/python/python_lists.asp)  
 >>###### 2. print with custom dividers - ref: (https://stackoverflow.com/questions/11178061/print-list-without-brackets-in-a-single-row)
 >>###### 3. Collatz conjencture - ref: (https://en.wikipedia.org/wiki/Collatz_conjecture)
+>>###### 4. The Simplest Math Problem No One Can Solve - Collatz Conjecture - ref: (https://www.youtube.com/watch?v=094y1Z2wpJg&t=1s)
 
 #### Week05: Weekday
 > w05_weekday.py
