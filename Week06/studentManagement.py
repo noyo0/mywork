@@ -3,21 +3,57 @@ view and quit. The function should return what the user chose.
 Test the function. We don’t need to worry about error handling yet'''
 
 # error handling with "while" ref: https://programming-21.mooc.fi/part-6/3-errors
-
+# return keyword ref: https://www.w3schools.com/python/ref_keyword_return.asp
+# execute function stored as string ref: https://www.geeksforgeeks.org/exec-in-python/
+# get list index numbers ref: https://towardsdatascience.com/looping-in-python-5289a99a116e#:~:text=Using%20the%20enumerate()%20Function&text=The%20enumerate()%20function%20takes,(the%20default%20is%200).&text=And%20that's%20it!
+# update dictionary ref: https://thispointer.com/python-how-to-add-append-key-value-pairs-in-dictionary-using-dict-update/
+def doModul():
+    Module={}
+    modname=[]
+    modgrade=[]
+    addMod=""
+    while addMod != "F" or addMod != "f":
+        addMod=input("add module or F for finish:")
+        if addMod == "F" or addMod == "f":
+            break
+        else:
+            addGrad=input(f"what is the Grade for {addMod}: ")
+            modname.append(addMod)
+            modgrade.append(addGrad) #Folytköv!!---------------------->
+        
+print(modname,modgrade)
 def doAdd():
     print("+++++++ doAdd")
     students=[]
-    addStud=str(input("Enter student's name: ")
-    students.append(addStud)
+    global gStudents
+    gStudents = students
+    addStud = ""
+    while addStud != "F" or addStud != "f":
+        addStud = str(input("Enter student's name or F to finish adding: "))
+        if addStud != addStud != "F" or addStud != "f":
+            students.append(addStud)
+        else:
+            break
+        print("students added:", students)
+    print("Finished adding. \n")
+    cont=input("view list? Y for yes:")
+    if cont=="y" or cont=="Y":
+        print("Full list of students:\n")
+        doView()
+        return(students)
+    else:
+        return(students)       
 
-    
 
 def doView():
-    print("....... doView")
+    print("function....... doView")
+    for g in gStudents:
+        print(g)
+    
 
 def doQuit():
     print("Thank you! ------- doQuit")
-    #exit()def UserMenu():
+    exit()
         
 #-----------------   
 def UserMenu():
