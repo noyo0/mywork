@@ -7,7 +7,10 @@ Test the function. We don’t need to worry about error handling yet'''
 # execute function stored as string ref: https://www.geeksforgeeks.org/exec-in-python/
 # get list index numbers ref: https://towardsdatascience.com/looping-in-python-5289a99a116e#:~:text=Using%20the%20enumerate()%20Function&text=The%20enumerate()%20function%20takes,(the%20default%20is%200).&text=And%20that's%20it!
 # update dictionary ref: https://thispointer.com/python-how-to-add-append-key-value-pairs-in-dictionary-using-dict-update/
+# dictionary from list (zip) ref: https://stackoverflow.com/questions/209840/how-can-i-make-a-dictionary-dict-from-separate-lists-of-keys-and-values
+
 def doModul():
+    print("function+++++++doModul\n Student selected: ",gID, gStu)
     Module={}
     modname=[]
     modgrade=[]
@@ -17,13 +20,17 @@ def doModul():
         if addMod == "F" or addMod == "f":
             break
         else:
-            addGrad=input(f"what is the Grade for {addMod}: ")
+            addGrad=input(f"what is the {gStu}'s grade for {addMod}: ")
             modname.append(addMod)
             modgrade.append(addGrad) #Folytköv!!---------------------->
-        
-print(modname,modgrade)
+    Module=dict(zip(modname,modgrade))
+    print(Module)
+    gStudents[gID].append(Module)
+    print(gStudents)
+
+
 def doAdd():
-    print("+++++++ doAdd")
+    print("function+++++++ doAdd\n")
     students=[]
     global gStudents
     gStudents = students
@@ -46,13 +53,22 @@ def doAdd():
 
 
 def doView():
-    print("function....... doView")
-    for g in gStudents:
-        print(g)
+    studID=""
+    print("function....... doView\n")
+    for g in range(len(gStudents)):
+        print(f"Student number:{g} - Student: {gStudents[g]}")
+    studID=int(input("Add module(s) to Student? Select student number"))
+    print(gStudents[studID])
+    global gID
+    gID = studID
+    global gStu
+    gStu=gStudents[studID]
+    doModul()
+
     
 
 def doQuit():
-    print("Thank you! ------- doQuit")
+    print("Thank you! ------- doQuit\n")
     exit()
         
 #-----------------   
