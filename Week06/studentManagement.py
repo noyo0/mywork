@@ -22,7 +22,7 @@ def doModul():
         else:
             addGrad=input(f"what is the {gStu}'s grade for {addMod}: ")
             modname.append(addMod)
-            modgrade.append(addGrad) #Folytköv!!---------------------->
+            modgrade.append(addGrad) 
     Module=dict(zip(modname,modgrade))
     print(Module)
     gStudents[gID].append(Module)
