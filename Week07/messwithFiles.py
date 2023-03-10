@@ -1,7 +1,7 @@
 # messing with files
 #author: Norbert Antal
-FILENAME = "2BR02B_K.Vonnegut.txt"
+import os
 
-with open(FILENAME,"r") as f:
-    for data in f:
-        print(data.strip())
+with os.listdir() as entries:
+    for e in entries:
+        print(e.name)
