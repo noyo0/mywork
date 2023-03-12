@@ -24,8 +24,7 @@ with open(filename, "rt") as csvFile:
             domains[domain]=1
         else:
             domains[domain]+=1
-       
-            
+                   
 for key, value in domains.items():
     print(key,value)
         
