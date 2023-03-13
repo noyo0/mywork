@@ -9,39 +9,63 @@ Test the function. We don’t need to worry about error handling yet'''
 # update dictionary ref: https://thispointer.com/python-how-to-add-append-key-value-pairs-in-dictionary-using-dict-update/
 # dictionary from list (zip) ref: https://stackoverflow.com/questions/209840/how-can-i-make-a-dictionary-dict-from-separate-lists-of-keys-and-values
 
-students = []
+def doModul():
+    print("function+++++++doModul\n Student selected: ",gID, gStu)
+    Module={}
+    modname=[]
+    modgrade=[]
+    addMod=""
+    while addMod != "F" or addMod != "f":
+        addMod=input("add module or F for finish:")
+        if addMod == "F" or addMod == "f":
+            break
+        else:
+            addGrad=input(f"what is the {gStu}'s grade for {addMod}: ")
+            modname.append(addMod)
+            modgrade.append(addGrad) 
+    Module=dict(zip(modname,modgrade))
+    print(Module)
+    gStudents[gID].append(Module)
+    print(gStudents)
 
-def readModules():
-    modules=[]
-    moduleName = input("\t Enter the first Module name (blank to quit):").strip()
-    while moduleName is not "":
-        module = {}
-        module["name"] = moduleName
-        module["grade"]=int(input("\t\tEnter grade:"))
-        modules.append(module)
-        moduleName = input("\tEnter the next module name (blank to quit):").strip()                     
-    return(modules)
 
 def doAdd():
     print("function+++++++ doAdd\n")
-    currentStudent = {}
-    currentStudent["name"] = input("enter name: ")
-    currentStudent["modules"] = readModules()
-    students.append(currentStudent)
-    doView()
+    students=[]
+    global gStudents
+    gStudents = students
+    addStud = ""
+    while addStud != "F" or addStud != "f":
+        addStud = str(input("Enter student's name or F to finish adding: "))
+        if addStud != addStud != "F" or addStud != "f":
+            students.append(addStud)
+        else:
+            break
+        print("students added:", students)
+    print("Finished adding. \n")
+    cont=input("view list? Y for yes:")
+    if cont=="y" or cont=="Y":
+        print("Full list of students:\n")
+        doView()
+        return(students)
+    else:
+        return(students)       
 
-
-def dispModules(modules):
-    print ("\tName \tGrade")
-    for m in modules:
-        print(m["name"],"\t",m["grade"])
 
 def doView():
-    print("function....... doView\n")   
-    for currentStudent in students:
-        print("student: \n",currentStudent["name"])
-        dispModules(currentStudent["modules"])
+    studID=""
+    print("function....... doView\n")
+    for g in range(len(gStudents)):
+        print(f"Student number:{g} - Student: {gStudents[g]}")
+    studID=int(input("Add module(s) to Student? Select student number"))
+    print(gStudents[studID])
+    global gID
+    gID = studID
+    global gStu
+    gStu=gStudents[studID]
+    doModul()
 
+    
 
 def doQuit():
     print("Thank you! ------- doQuit\n")
