@@ -19,5 +19,5 @@ if not os.path.isfile(FILENAME):
     fn_writenumber(0)
     
 num=fn_readnumber()
-print(f"we have run this program {num} times")
+print(f"we have ran this program {num} times")
         
