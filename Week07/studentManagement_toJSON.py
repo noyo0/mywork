@@ -18,6 +18,7 @@ students = []
 def saveMe(obj):
     with open(SAVEFILE,"wt") as f:
         json.dump(obj,f)
+        print("student saved")
 
 
 def readModules():
