@@ -1,5 +1,6 @@
 # how to raise and exception
 # Author: Norbert Antal
+
 try:
     input = input("enter number:  ")
     number=int(input)
