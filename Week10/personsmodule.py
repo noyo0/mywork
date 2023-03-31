@@ -1,6 +1,7 @@
 # demo of a module
 # Author: Norbert Antal
 import datetime as dt
+
 def gethealthdata(person):
     print("get health data: ", person['firstname'])
 
@@ -16,5 +17,5 @@ if __name__=='__main__':
         'width' : 100
     }
 
-displayperson(person1)
-gethealthdata(person1)
+#displayperson(person1)
+#gethealthdata(person1)
